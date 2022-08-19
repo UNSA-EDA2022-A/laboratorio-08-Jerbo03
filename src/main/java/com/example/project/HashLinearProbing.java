@@ -97,7 +97,7 @@ public class HashLinearProbing {
             }
             
             if (buckets[hash].DNI.equals(AVAILABLE)) {
-                return ("Clave " + buckets[hash].nombre + " no encontrada!");
+                return ("null");
             }
 
             if (hash + 1 < hsize) {
