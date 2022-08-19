@@ -88,7 +88,7 @@ public class HashLinearProbing {
 
         if (isEmpty()) {
             System.out.println("Tabla hash esta vacia!");
-            return ("null");
+            return (null);
         }
 
         for (int i = 0; i < hsize; i++) {
@@ -97,7 +97,7 @@ public class HashLinearProbing {
             }
             
             if (buckets[hash].DNI.equals(AVAILABLE)) {
-                return ("null");
+                return (null);
             }
 
             if (hash + 1 < hsize) {
@@ -106,7 +106,7 @@ public class HashLinearProbing {
                 hash = 0;
             }
         }
-        return ("null");
+        return null;
     }    
    
     public boolean isFull() {        
