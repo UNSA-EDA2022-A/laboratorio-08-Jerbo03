@@ -74,7 +74,7 @@ public class HashLinearProbing {
 
     public void displayHashtable() {
         for (int i = 0; i < hsize; i++) {
-            if (buckets[i] == null || buckets[i] == AVAILABLE) {
+            if (buckets[i] == null || buckets[i].dni == AVAILABLE) {
                 System.out.println("Celda " + i + ": Vacia");
             } else {
                 System.out.println("Celda " + i + ": " + buckets[i].toString());
