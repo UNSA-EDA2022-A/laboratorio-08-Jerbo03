@@ -88,7 +88,7 @@ public class HashLinearProbing {
 
         if (isEmpty()) {
             System.out.println("Tabla hash esta vacia!");
-            return -1;
+            return null;
         }
 
         for (int i = 0; i < hsize; i++) {
@@ -107,7 +107,7 @@ public class HashLinearProbing {
             }
         }
         System.out.println("Clave " + dni + " no encontrada!");
-        return -1;
+        return null;
     }    
    
     public boolean isFull() {        
