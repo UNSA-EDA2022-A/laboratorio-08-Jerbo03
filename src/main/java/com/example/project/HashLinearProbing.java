@@ -5,13 +5,13 @@ import java.util.Random;
 public class HashLinearProbing {
     private int hsize; // tamano de la tabla hash
     private Persona[] buckets; // array que representa la tabla hash
-    private Persona AVAILABLE;
+    private String AVAILABLE;
     private int size; // cantidad de elementos en la tabla hash
 
     public HashLinearProbing(int hsize) {
         this.buckets = new Persona[hsize];
         this.hsize = hsize;
-        this.AVAILABLE = new Persona("AAAAAAAA", "Nadie");
+        this.AVAILABLE = "AVAILABLE";
         this.size = 0;
     }
 
@@ -33,7 +33,7 @@ public class HashLinearProbing {
         }
 
         for (int i = 0; i < hsize; i++) {
-            if (buckets[hash] == null || buckets[hash] == AVAILABLE) {
+            if (buckets[hash] == null || buckets[hash].DNI == AVAILABLE) {
                 buckets[hash] = wrappedPerson;
                 size++;
                 return;
@@ -58,7 +58,7 @@ public class HashLinearProbing {
 
         for (int i = 0; i < hsize; i++) {
             if (buckets[hash] != null && buckets[hash].DNI.equals(wrappeddni)) {
-                buckets[hash] = AVAILABLE;
+                buckets[hash] = new Person(AVAILABLE, buckets[hash].nombre);
                 size--;
                 return;
             }
@@ -88,16 +88,16 @@ public class HashLinearProbing {
 
         if (isEmpty()) {
             System.out.println("Tabla hash esta vacia!");
-            return ("Clave " + dni + " no encontrada!");
+            return ("null");
         }
 
         for (int i = 0; i < hsize; i++) {
-            try {
-                if (buckets[hash].DNI.equals(wrappeddni)) {
-                    buckets[hash] = AVAILABLE;
-                    return buckets[hash].nombre;
-                }
-            } catch (Exception E) {
+            if (buckets[hash].DNI.equals(wrappeddni)) {
+                return buckets[hash].nombre;
+            }
+            
+            if (buckets[hash].DNI.equals(AVAILABLE)) {
+                return ("Clave " + buckets[hash].nombre + " no encontrada!");
             }
 
             if (hash + 1 < hsize) {
@@ -106,7 +106,7 @@ public class HashLinearProbing {
                 hash = 0;
             }
         }
-        return ("Clave " + dni + " no encontrada!");
+        return ("null");
     }    
    
     public boolean isFull() {        
