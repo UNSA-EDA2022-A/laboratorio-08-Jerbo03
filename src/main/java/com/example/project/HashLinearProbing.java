@@ -25,7 +25,7 @@ public class HashLinearProbing {
 
     public void insertHash(Persona p) {
         Persona wrappedPerson = p;
-        int hash = hashing(p.DNI);
+        int hash = hashing(p.dni);
 
         if (isFull()) {
             System.out.println("Tabla hash esta llena!");
@@ -47,9 +47,9 @@ public class HashLinearProbing {
         }
     }
 
-    public void deleteHash(String DNI) {
-        String wrappedDNI = DNI;
-        int hash = hashing(DNI);
+    public void deleteHash(String dni) {
+        String wrappeddni = dni;
+        int hash = hashing(dni);
 
         if (isEmpty()) {
             System.out.println("Tabla hash esta vacia!");
@@ -57,7 +57,7 @@ public class HashLinearProbing {
         }
 
         for (int i = 0; i < hsize; i++) {
-            if (buckets[hash] != null && buckets[hash].equals(wrappedDNI)) {
+            if (buckets[hash] != null && buckets[hash].equals(wrappeddni)) {
                 buckets[hash] = AVAILABLE;
                 size--;
                 return;
@@ -69,7 +69,7 @@ public class HashLinearProbing {
                 hash = 0;
             }
         }
-        System.out.println("Clave " + DNI + " no encontrada");
+        System.out.println("Clave " + dni + " no encontrada");
     }
 
     public void displayHashtable() {
@@ -82,9 +82,9 @@ public class HashLinearProbing {
         }
     }
 
-    public int findHash(String DNI) {
-        String wrappedDNI = DNI;
-        int hash = hashing(DNI);
+    public int findHash(String dni) {
+        String wrappeddni = dni;
+        int hash = hashing(dni);
 
         if (isEmpty()) {
             System.out.println("Tabla hash esta vacia!");
@@ -93,7 +93,7 @@ public class HashLinearProbing {
 
         for (int i = 0; i < hsize; i++) {
             try {
-                if (buckets[hash].equals(wrappedDNI)) {
+                if (buckets[hash].equals(wrappeddni)) {
                     buckets[hash] = AVAILABLE;
                     return hash;
                 }
@@ -106,7 +106,7 @@ public class HashLinearProbing {
                 hash = 0;
             }
         }
-        System.out.println("Clave " + DNI + " no encontrada!");
+        System.out.println("Clave " + dni + " no encontrada!");
         return -1;
     }    
    
