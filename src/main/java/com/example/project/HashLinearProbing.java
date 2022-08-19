@@ -58,7 +58,7 @@ public class HashLinearProbing {
 
         for (int i = 0; i < hsize; i++) {
             if (buckets[hash] != null && buckets[hash].DNI.equals(wrappeddni)) {
-                buckets[hash] = new Person(AVAILABLE, buckets[hash].nombre);
+                buckets[hash] = new Persona(AVAILABLE, buckets[hash].nombre);
                 size--;
                 return;
             }
