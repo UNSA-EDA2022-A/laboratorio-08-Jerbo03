@@ -82,7 +82,7 @@ public class HashLinearProbing {
         }
     }
 
-    public int findHash(String dni) {
+    public Persona findHash(String dni) {
         String wrappeddni = dni;
         int hash = hashing(dni);
 
